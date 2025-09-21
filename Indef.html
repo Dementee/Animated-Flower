@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Yellow Flower for Evy 🌼</title>
+  <style>
+    body {
+      background: radial-gradient(circle, #fffde4 0%, #ffd700 100%);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-family: 'Segoe Script', cursive;
+    }
+    .flor-contenedor {
+      position: relative;
+      width: 320px;
+      height: 320px;
+      margin-bottom: 30px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .flor-contenedor:active {
+      transform: scale(1.05) rotate(-3deg);
+    }
+    .petalo {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 120px;
+      height: 60px;
+      background: radial-gradient(ellipse 100px 40px at 80px 30px, #fff700 60%, #ffd700 100%);
+      border-radius: 60px 60px 0 60px;
+      transform-origin: 50% 100%;
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.11);
+      transition: filter 0.2s;
+      filter: brightness(1);
+      margin-left: -60px;
+      margin-top: -60px;
+    }
+    .flor-contenedor:hover .petalo {
+      filter: brightness(1.15) drop-shadow(0 0 8px #ffea00cc);
+    }
+    /* Posición de los pétalos */
+    .petalo1 { transform: rotate(0deg)    translateY(-70px);}
+    .petalo2 { transform: rotate(45deg)   translateY(-70px);}
+    .petalo3 { transform: rotate(90deg)   translateY(-70px);}
+    .petalo4 { transform: rotate(135deg)  translateY(-70px);}
+    .petalo5 { transform: rotate(180deg)  translateY(-70px);}
+    .petalo6 { transform: rotate(225deg)  translateY(-70px);}
+    .petalo7 { transform: rotate(270deg)  translateY(-70px);}
+    .petalo8 { transform: rotate(315deg)  translateY(-70px);}
+    /* Centro Girasol */
+    .centro {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 110px;
+      height: 110px;
+      background: radial-gradient(circle 40px at 55% 45%, #d2a74c 45%, #8c5a19 80%, #57370d 100%);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 30px 8px #fff59a, 0 3px 8px #b59c00aa;
+      border: 4px solid #b58d41cc;
+      z-index: 2;
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+    }
+    .flor-contenedor:hover .centro {
+      box-shadow: 0 0 42px 18px #fffde466, 0 3px 20px #b59c00cc;
+    }
+    /* Tallos y hojas */
+    .tallo {
+      position: absolute;
+      left: 50%;
+      top: 72%;
+      width: 16px;
+      height: 110px;
+      background: linear-gradient(180deg, #b8e054 10%, #6fbb2e 100%);
+      border-radius: 8px 8px 30px 30px;
+      transform: translateX(-50%);
+      z-index: 0;
+      box-shadow: 0 0 10px #9ecc4e88;
+    }
+    .hoja {
+      position: absolute;
+      width: 70px;
+      height: 38px;
+      background: radial-gradient(ellipse 40px 18px at 40px 20px, #97d84c 60%, #5c9c1c 100%);
+      border-radius: 60px 30px 60px 30px/40px 30px 50px 30px;
+      top: 86%;
+      z-index: 1;
+      opacity: 0.85;
+      transition: transform 0.3s;
+    }
+    .hoja1 {
+      left: 54%;
+      transform: rotate(-22deg) scaleX(-1);
+    }
+    .hoja2 {
+      left: 21%;
+      transform: rotate(17deg);
+    }
+    /* Mensaje */
+    .mensaje {
+      font-size: 1.5em;
+      color: #d4a000;
+      background: rgba(255,255,255,0.7);
+      padding: 18px 30px;
+      border-radius: 30px;
+      box-shadow: 0 6px 24px #ffe06666;
+      text-align: center;
+      margin-top: 10px;
+      max-width: 420px;
+      transition: background 0.4s;
+    }
+    /* Corazón animado */
+    .corazon {
+      display: none;
+      margin: 0 auto;
+      margin-top: 18px;
+      width: 80px;
+      height: 80px;
+      position: relative;
+      animation: latido 1.2s infinite;
+    }
+    .corazon::before, .corazon::after {
+      content: "";
+      position: absolute;
+      left: 40px;
+      top: 0;
+      width: 40px;
+      height: 64px;
+      background: #ffb1b1;
+      border-radius: 40px 40px 0 0;
+      transform: rotate(-45deg);
+      box-shadow: 0 2px 16px #ffb1b1aa;
+    }
+    .corazon::after {
+      left: 0;
+      transform: rotate(45deg);
+    }
+    @keyframes latido {
+      0%, 100% { transform: scale(1);}
+      15% { transform: scale(1.16);}
+      30% { transform: scale(1);}
+      45% { transform: scale(1.08);}
+      60% { transform: scale(1);}
+    }
+  </style>
+</head>
+<body>
+  <div class="flor-contenedor" id="flor">
+    <div class="petalo petalo1"></div>
+    <div class="petalo petalo2"></div>
+    <div class="petalo petalo3"></div>
+    <div class="petalo petalo4"></div>
+    <div class="petalo petalo5"></div>
+    <div class="petalo petalo6"></div>
+    <div class="petalo petalo7"></div>
+    <div class="petalo petalo8"></div>
+    <div class="centro" id="centro"></div>
+    <div class="tallo"></div>
+    <div class="hoja hoja1"></div>
+    <div class="hoja hoja2"></div>
+  </div>
+  <div class="mensaje" id="mensaje">
+    Haz clic en la flor para una sorpresa especial 💛
+  </div>
+  <div class="corazon" id="corazon"></div>
+
+  <script>
+    const flor = document.getElementById('flor');
+    const mensaje = document.getElementById('mensaje');
+    const corazon = document.getElementById('corazon');
+    let revelado = false;
+
+    flor.addEventListener('click', () => {
+      if (!revelado) {
+        mensaje.textContent = "Para una chica hermosa: ¡Hippopotani, Gracias por tu amistad y feliz dia de las flores amarillas! 🌼";
+        corazon.style.display = 'block';
+        revelado = true;
+      } else {
+        mensaje.textContent = "Haz clic en la flor para una sorpresa especial 💛";
+        corazon.style.display = 'none';
+        revelado = false;
+      }
+    });
+  </script>
+</body>
+</html>
